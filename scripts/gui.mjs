@@ -13,9 +13,31 @@ const projectRoot = path.resolve(__dirname, '..');
 const guiRoot = path.join(projectRoot, 'gui');
 
 function detectOpenClawInstalled() {
-  const command = process.platform === 'win32' ? 'openclaw.cmd' : 'openclaw';
-  const result = spawnSync(command, ['--version'], { stdio: 'ignore' });
-  return result.status === 0;
+  if (process.platform === 'win32') {
+    const result = spawnSync('cmd', ['/c', 'where openclaw'], { stdio: 'ignore' });
+    return result.status === 0;
+  }
+
+  const shellChecks = [
+    ['/bin/zsh', ['-lc', 'command -v openclaw >/dev/null 2>&1']],
+    ['/bin/bash', ['-lc', 'command -v openclaw >/dev/null 2>&1']],
+  ];
+
+  for (const [cmd, args] of shellChecks) {
+    const result = spawnSync(cmd, args, { stdio: 'ignore' });
+    if (result.status === 0) return true;
+  }
+
+  const candidates = [
+    path.join(process.env.HOME || '', '.nvm/versions/node/v22.22.0/bin/openclaw'),
+    '/usr/local/bin/openclaw',
+    '/opt/homebrew/bin/openclaw',
+  ].filter(Boolean);
+
+  return candidates.some((candidate) => {
+    const result = spawnSync(candidate, ['--version'], { stdio: 'ignore' });
+    return result.status === 0;
+  });
 }
 
 function json(res, status, data) {

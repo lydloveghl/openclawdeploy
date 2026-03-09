@@ -20,6 +20,7 @@ const state = {
   currentStep: 0,
   bootstrapComplete: false,
   catalog: { providers: [], skills: [], meta: {} },
+  openclawDetected: false,
   busy: false,
   skillSearch: '',
   form: {
@@ -30,6 +31,7 @@ const state = {
     skillsManifestUrl: '',
     installerUrl: '',
     npmRegistry: '',
+    openclawInstallMode: 'reuse',
     provider: 'openrouter',
     apiKey: '',
     model: '',
@@ -63,31 +65,11 @@ const state = {
 };
 
 const steps = [
-  {
-    title: '欢迎与环境确认',
-    lead: '先确认工作目录、扫描本地已知 provider 与 skills，再开始后面的接入配置。这样用户会先知道这次安装器“能配什么”，而不是一上来就填一堆参数。',
-    short: '环境确认',
-  },
-  {
-    title: '模型接入',
-    lead: '这里决定 OpenClaw 默认用哪个模型提供方。推荐优先选 OpenRouter / OpenAI / Anthropic；如果你有公司内网代理、LiteLLM、vLLM 或其他兼容接口，也可以选自定义或其他已知 provider。',
-    short: '模型配置',
-  },
-  {
-    title: '渠道接入',
-    lead: '这一步配置机器人会在哪些平台接收消息。建议先至少接一个渠道，部署完成后方便立刻验证：Telegram 比较省事，Feishu 更适合团队场景。',
-    short: '渠道配置',
-  },
-  {
-    title: 'Skills 选择与配置',
-    lead: '这里会扫描本机已知 skills（bundled / 已安装 / 工作区 / 扩展附带），让你直接选择要启用或禁用哪些能力。需要 API Key 或外部二进制的 skill，也会在这里标出来。',
-    short: 'Skills',
-  },
-  {
-    title: '预览与执行',
-    lead: '最后一步把前面所有选择汇总成执行计划。建议先做一次 Dry Run，看清配置和命令，再正式安装。',
-    short: '执行',
-  },
+  { title: '环境准备', lead: '先准备 OpenClaw 和网络设置。', short: '环境' },
+  { title: '模型接入', lead: '选择默认模型和接入方式。', short: '模型' },
+  { title: '渠道接入', lead: '选择消息接入平台。', short: '渠道' },
+  { title: 'Skills', lead: '选择要启用的能力。', short: 'Skills' },
+  { title: '预览与执行', lead: '确认后执行 Dry Run 或正式安装。', short: '执行' },
 ];
 
 async function apiGetDefaults() {
@@ -610,17 +592,18 @@ function reviewSectionHtml() {
 }
 
 function welcomeSectionHtml() {
+  const installStatus = state.openclawDetected ? '检测到已安装 OpenClaw' : '未检测到 OpenClaw';
+  const buttonLabel = state.openclawDetected
+    ? (state.form.openclawInstallMode === 'reinstall' ? '重新安装 OpenClaw' : '使用现有 OpenClaw')
+    : '安装 OpenClaw';
+
   return `
     <div class="stack">
-      <div class="callout">
-        <strong>整个部署流程会怎么走？</strong>
-        这套安装器现在按更合理的顺序来：先准备 OpenClaw 基础环境 → 再基于已安装环境重新扫描模型 / skills → 再接着配置模型、渠道和技能 → 最后统一预览和执行。这里还会把“网络与镜像策略”放在第一步，因为它会影响在线列表获取、依赖下载和国内网络体验。
-      </div>
       <div class="kpi-row">
-        <div class="kpi"><span class="muted">OpenClaw 基础环境</span><strong>${state.bootstrapComplete ? '已就绪' : '未准备'}</strong></div>
-        <div class="kpi"><span class="muted">当前可见 Provider</span><strong>${state.catalog.providers.length}</strong></div>
-        <div class="kpi"><span class="muted">当前可见 Skills</span><strong>${state.catalog.skills.length}</strong></div>
-        <div class="kpi"><span class="muted">当前目录源</span><strong>${state.form.catalogRemote ? '在线优先' : '仅本地'}</strong></div>
+        <div class="kpi"><span class="muted">OpenClaw</span><strong>${installStatus}</strong></div>
+        <div class="kpi"><span class="muted">Provider</span><strong>${state.catalog.providers.length}</strong></div>
+        <div class="kpi"><span class="muted">Skills</span><strong>${state.catalog.skills.length}</strong></div>
+        <div class="kpi"><span class="muted">目录源</span><strong>${state.form.catalogRemote ? '在线优先' : '仅本地'}</strong></div>
       </div>
       <div class="grid">
         <label>OpenClaw 工作目录
@@ -628,40 +611,39 @@ function welcomeSectionHtml() {
         </label>
         <label>网络预设
           <select id="networkPreset">
-            <option value="global" ${state.form.networkPreset === 'global' ? 'selected' : ''}>global（默认直连）</option>
-            <option value="cn" ${state.form.networkPreset === 'cn' ? 'selected' : ''}>cn（优先国内友好源 / CDN）</option>
+            <option value="global" ${state.form.networkPreset === 'global' ? 'selected' : ''}>global</option>
+            <option value="cn" ${state.form.networkPreset === 'cn' ? 'selected' : ''}>cn</option>
           </select>
         </label>
-        <label class="checkbox-line"><input id="catalogRemote" type="checkbox" ${state.form.catalogRemote ? 'checked' : ''} /> 在线获取 Provider / Skills 列表（失败时回退本地）</label>
-        <label>远程 Provider 索引 URL（可留空）
-          <input id="providerManifestUrl" type="text" value="${escapeHtml(state.form.providerManifestUrl)}" placeholder="可自定义在线 provider 索引 URL" />
-        </label>
-        <label>远程 Skills Manifest URL（可留空）
-          <input id="skillsManifestUrl" type="text" value="${escapeHtml(state.form.skillsManifestUrl)}" placeholder="可自定义在线 skills JSON URL" />
-        </label>
-        <label>OpenClaw 安装脚本镜像 URL（可留空）
+        <label class="checkbox-line"><input id="catalogRemote" type="checkbox" ${state.form.catalogRemote ? 'checked' : ''} /> 在线获取列表（失败回退本地）</label>
+        <label>OpenClaw 安装脚本镜像（可留空）
           <input id="installerUrl" type="text" value="${escapeHtml(state.form.installerUrl)}" placeholder="例如 https://your-mirror.example.com/openclaw/install.sh" />
         </label>
-        <label>npm Registry / 镜像（可留空）
+        <label>npm 镜像（可留空）
           <input id="npmRegistry" type="text" value="${escapeHtml(state.form.npmRegistry)}" placeholder="例如 https://registry.npmmirror.com" />
         </label>
+        <label>远程 Skills Manifest（可留空）
+          <input id="skillsManifestUrl" type="text" value="${escapeHtml(state.form.skillsManifestUrl)}" placeholder="远程 skills JSON URL" />
+        </label>
+      </div>
+      ${state.openclawDetected ? `
         <div class="callout">
-          <strong>为什么这里先问网络和镜像？</strong>
-          因为在线 provider / skills 列表、Electron 依赖下载、以及后续 OpenClaw 安装，都可能受网络影响。国内环境下，提前配置 npm 镜像和在线目录源，会比装到一半再失败好很多。
+          <strong>检测到你电脑里已经有 OpenClaw</strong>
+          请选择复用现有安装，或者重新安装覆盖。
         </div>
-      </div>
-      <div class="callout">
-        <strong>第一步先做什么？</strong>
-        先点下面的“准备 OpenClaw 基础环境”。它会先把 OpenClaw CLI 安装好，然后安装器会按已安装环境重新扫描一次 provider / skills 列表。这样后面的配置步骤看到的内容更贴近真实环境。
-      </div>
+        <div class="grid">
+          <label>OpenClaw 处理方式
+            <select id="openclawInstallMode">
+              <option value="reuse" ${state.form.openclawInstallMode === 'reuse' ? 'selected' : ''}>复用现有安装</option>
+              <option value="reinstall" ${state.form.openclawInstallMode === 'reinstall' ? 'selected' : ''}>重新安装覆盖</option>
+            </select>
+          </label>
+        </div>
+      ` : ''}
       <div class="hero-actions">
-        <button id="bootstrapBtn" class="primary">准备 OpenClaw 基础环境</button>
+        <button id="bootstrapBtn" class="primary">${buttonLabel}</button>
       </div>
-      <div class="summary-list">
-        <div class="summary-item"><strong>在线列表策略</strong>Provider 列表默认可从 OpenClaw 官方线上文档拉取；Skills 支持在线 manifest URL，自定义后就能把“远程技能市场”并入本地扫描结果。</div>
-        <div class="summary-item"><strong>国内网络建议</strong>如果你在国内，建议把“网络预设”切到 <b>cn</b>，并填写 npm 镜像，例如 <code>https://registry.npmmirror.com</code>。</div>
-        <div class="summary-item"><strong>如果你只想最快装起来</strong>建议先准备基础环境，然后选：OpenRouter + Telegram + 少量 skills，最后先 Dry Run 一次。</div>
-      </div>
+      <div class="inline-help">先完成这一步，后面的模型、渠道和 skills 配置才会开放。</div>
     </div>
   `;
 }
@@ -689,11 +671,12 @@ function bindWelcome() {
     });
   });
 
-  ['networkPreset'].forEach((id) => {
+  ['networkPreset', 'openclawInstallMode'].forEach((id) => {
     const element = $(id);
     if (!element) return;
     element.addEventListener('change', (event) => {
       state.form[id] = event.target.value;
+      renderCurrentStep();
     });
   });
 
@@ -876,6 +859,15 @@ async function pollRun(runId) {
 }
 
 async function bootstrapOpenClaw() {
+  if (state.openclawDetected && state.form.openclawInstallMode === 'reuse') {
+    logs.textContent = '已选择复用现有 OpenClaw，正在刷新模型 / skills 列表…';
+    state.bootstrapComplete = true;
+    await loadCatalog();
+    state.currentStep = 1;
+    renderCurrentStep();
+    return;
+  }
+
   logs.textContent = '正在准备 OpenClaw 基础环境…';
   setBusy(true);
   try {
@@ -889,6 +881,7 @@ async function bootstrapOpenClaw() {
     const result = await pollRun(payload.runId);
     if (result.status === 'finished') {
       state.bootstrapComplete = true;
+      state.openclawDetected = true;
       await loadCatalog();
       state.currentStep = 1;
       renderCurrentStep();
@@ -941,7 +934,9 @@ runBtn.addEventListener('click', () => startRun(false));
 
 (async () => {
   state.defaults = await apiGetDefaults();
-  state.bootstrapComplete = Boolean(state.defaults.openclawInstalled);
-  platformInfo.textContent = `当前平台：${state.defaults.platform} · 当前模式：${state.defaults.mode === 'desktop' ? '桌面安装器' : '浏览器图形安装器'} · OpenClaw：${state.bootstrapComplete ? '已安装' : '未安装'}`;
+  state.openclawDetected = Boolean(state.defaults.openclawInstalled);
+  state.bootstrapComplete = false;
+  state.form.openclawInstallMode = state.openclawDetected ? 'reuse' : 'reinstall';
+  platformInfo.textContent = `当前平台：${state.defaults.platform} · 当前模式：${state.defaults.mode === 'desktop' ? '桌面安装器' : '浏览器图形安装器'} · OpenClaw：${state.openclawDetected ? '已安装' : '未安装'}`;
   await loadCatalog();
 })();
