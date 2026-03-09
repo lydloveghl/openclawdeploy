@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
-import { spawn } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { createRun, getRun } from './run-manager.mjs';
 import { discoverCatalog } from './discovery.mjs';
@@ -11,6 +11,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '..');
 const guiRoot = path.join(projectRoot, 'gui');
+
+function detectOpenClawInstalled() {
+  const command = process.platform === 'win32' ? 'openclaw.cmd' : 'openclaw';
+  const result = spawnSync(command, ['--version'], { stdio: 'ignore' });
+  return result.status === 0;
+}
 
 function json(res, status, data) {
   res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' });
@@ -72,7 +78,7 @@ const server = http.createServer(async (req, res) => {
     }
 
     if (req.method === 'GET' && url.pathname === '/api/defaults') {
-      return json(res, 200, { platform: process.platform, mode: 'browser' });
+      return json(res, 200, { platform: process.platform, mode: 'browser', openclawInstalled: detectOpenClawInstalled() });
     }
 
     if (req.method === 'GET' && url.pathname === '/api/catalog') {

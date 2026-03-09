@@ -15,6 +15,8 @@ export function buildArgs(options = {}) {
   push('--api-key', options.apiKey);
   push('--model', options.model);
   push('--workspace', options.workspace);
+  if (options.bootstrapOnly) args.push('--bootstrap-only');
+  if (options.skipOpenClawInstall) args.push('--skip-openclaw-install');
   if (options.force) args.push('--force');
   if (options.dryRun) args.push('--dry-run');
   if (options.skipAuth) args.push('--skip-auth');

@@ -18,7 +18,8 @@ const reloadCatalogBtn = $('reloadCatalogBtn');
 const state = {
   defaults: null,
   currentStep: 0,
-  catalog: { providers: [], skills: [] },
+  bootstrapComplete: false,
+  catalog: { providers: [], skills: [], meta: {} },
   busy: false,
   skillSearch: '',
   form: {
@@ -575,6 +576,7 @@ function reviewSectionHtml() {
         <div class="summary-item">
           <strong>步骤 1：基础环境</strong>
           工作目录：${escapeHtml(state.form.workspace)}<br />
+          基础环境：${state.bootstrapComplete ? '已准备（后续安装可跳过 CLI 重装）' : '未准备'}<br />
           网络预设：${escapeHtml(state.form.networkPreset)}<br />
           目录来源：${state.form.catalogRemote ? '在线优先，本地回退' : '仅本地'}<br />
           npm 镜像：${escapeHtml(state.form.npmRegistry || '（默认）')}
@@ -612,9 +614,10 @@ function welcomeSectionHtml() {
     <div class="stack">
       <div class="callout">
         <strong>整个部署流程会怎么走？</strong>
-        这套安装器不是把所有选项一次性堆给你，而是按照真正部署顺序来：先确认环境 → 再选模型 → 再接渠道 → 再决定 skills → 最后统一预览和执行。这里还会把“网络与镜像策略”放在第一步，因为它会影响在线列表获取、依赖下载和国内网络体验。
+        这套安装器现在按更合理的顺序来：先准备 OpenClaw 基础环境 → 再基于已安装环境重新扫描模型 / skills → 再接着配置模型、渠道和技能 → 最后统一预览和执行。这里还会把“网络与镜像策略”放在第一步，因为它会影响在线列表获取、依赖下载和国内网络体验。
       </div>
       <div class="kpi-row">
+        <div class="kpi"><span class="muted">OpenClaw 基础环境</span><strong>${state.bootstrapComplete ? '已就绪' : '未准备'}</strong></div>
         <div class="kpi"><span class="muted">当前可见 Provider</span><strong>${state.catalog.providers.length}</strong></div>
         <div class="kpi"><span class="muted">当前可见 Skills</span><strong>${state.catalog.skills.length}</strong></div>
         <div class="kpi"><span class="muted">当前目录源</span><strong>${state.form.catalogRemote ? '在线优先' : '仅本地'}</strong></div>
@@ -647,10 +650,17 @@ function welcomeSectionHtml() {
           因为在线 provider / skills 列表、Electron 依赖下载、以及后续 OpenClaw 安装，都可能受网络影响。国内环境下，提前配置 npm 镜像和在线目录源，会比装到一半再失败好很多。
         </div>
       </div>
+      <div class="callout">
+        <strong>第一步先做什么？</strong>
+        先点下面的“准备 OpenClaw 基础环境”。它会先把 OpenClaw CLI 安装好，然后安装器会按已安装环境重新扫描一次 provider / skills 列表。这样后面的配置步骤看到的内容更贴近真实环境。
+      </div>
+      <div class="hero-actions">
+        <button id="bootstrapBtn" class="primary">准备 OpenClaw 基础环境</button>
+      </div>
       <div class="summary-list">
         <div class="summary-item"><strong>在线列表策略</strong>Provider 列表默认可从 OpenClaw 官方线上文档拉取；Skills 支持在线 manifest URL，自定义后就能把“远程技能市场”并入本地扫描结果。</div>
         <div class="summary-item"><strong>国内网络建议</strong>如果你在国内，建议把“网络预设”切到 <b>cn</b>，并填写 npm 镜像，例如 <code>https://registry.npmmirror.com</code>。</div>
-        <div class="summary-item"><strong>如果你只想最快装起来</strong>建议选：OpenRouter + Telegram + 少量 skills，然后先 Dry Run 一次。</div>
+        <div class="summary-item"><strong>如果你只想最快装起来</strong>建议先准备基础环境，然后选：OpenRouter + Telegram + 少量 skills，最后先 Dry Run 一次。</div>
       </div>
     </div>
   `;
@@ -694,6 +704,8 @@ function bindWelcome() {
       state.form[id] = event.target.checked;
     });
   });
+
+  $('bootstrapBtn')?.addEventListener('click', bootstrapOpenClaw);
 }
 
 function bindProviders() {
@@ -824,6 +836,7 @@ function renderCurrentStep() {
   nextBtn.classList.toggle('hidden', state.currentStep === steps.length - 1);
   planBtn.classList.toggle('hidden', state.currentStep !== steps.length - 1);
   runBtn.classList.toggle('hidden', state.currentStep !== steps.length - 1);
+  nextBtn.disabled = state.busy || (state.currentStep === 0 && !state.bootstrapComplete);
   renderStepNav();
 }
 
@@ -855,10 +868,34 @@ async function pollRun(runId) {
 
     if (payload.status === 'finished' || payload.status === 'failed') {
       setBusy(false);
-      return;
+      return payload;
     }
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
+  }
+}
+
+async function bootstrapOpenClaw() {
+  logs.textContent = '正在准备 OpenClaw 基础环境…';
+  setBusy(true);
+  try {
+    const payload = await apiStartRun({
+      workspace: state.form.workspace.trim() || '~/.openclaw/workspace',
+      bootstrapOnly: true,
+      provider: 'none',
+      installerUrl: state.form.installerUrl.trim(),
+      npmRegistry: state.form.npmRegistry.trim(),
+    });
+    const result = await pollRun(payload.runId);
+    if (result.status === 'finished') {
+      state.bootstrapComplete = true;
+      await loadCatalog();
+      state.currentStep = 1;
+      renderCurrentStep();
+    }
+  } catch (error) {
+    setBusy(false);
+    logs.textContent = error.message || '基础环境准备失败';
   }
 }
 
@@ -866,6 +903,9 @@ async function startRun(dryRun) {
   let options;
   try {
     options = collectOptions({ dryRun });
+    if (state.bootstrapComplete) {
+      options.skipOpenClawInstall = true;
+    }
   } catch (error) {
     logs.textContent = `参数整理失败：${error.message}`;
     return;
@@ -901,6 +941,7 @@ runBtn.addEventListener('click', () => startRun(false));
 
 (async () => {
   state.defaults = await apiGetDefaults();
-  platformInfo.textContent = `当前平台：${state.defaults.platform} · 当前模式：${state.defaults.mode === 'desktop' ? '桌面安装器' : '浏览器图形安装器'}`;
+  state.bootstrapComplete = Boolean(state.defaults.openclawInstalled);
+  platformInfo.textContent = `当前平台：${state.defaults.platform} · 当前模式：${state.defaults.mode === 'desktop' ? '桌面安装器' : '浏览器图形安装器'} · OpenClaw：${state.bootstrapComplete ? '已安装' : '未安装'}`;
   await loadCatalog();
 })();

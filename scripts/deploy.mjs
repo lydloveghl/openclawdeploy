@@ -40,6 +40,7 @@ function printHelp() {
   --provider <openai|anthropic|openrouter|custom|none>
                                                大模型提供方
   --skip-model-setup                            显式跳过模型接入（等价于 --provider none）
+  --bootstrap-only                              仅做 OpenClaw 基础安装，不写配置、不做后续配置动作
   --api-key <token>                             OpenAI / Anthropic / OpenRouter API Key
   --model <provider/model>                      默认模型；不传则按 provider 自动选
   --workspace <path>                            OpenClaw 默认工作目录
@@ -281,6 +282,7 @@ function parseArgs(args) {
     skipGatewayStart: false,
     skipFeishuPluginInstall: false,
     skipModelSetup: false,
+    bootstrapOnly: false,
     customProviderId: '',
     customApi: 'openai-completions',
     customBaseUrl: '',
@@ -332,6 +334,13 @@ function parseArgs(args) {
         options.provider = 'none';
         options.model = '';
         options.skipAuth = true;
+        break;
+      case '--bootstrap-only':
+        options.bootstrapOnly = true;
+        options.provider = 'none';
+        options.model = '';
+        options.skipAuth = true;
+        options.configureSkills = false;
         break;
       case '--api-key':
         options.apiKey = readValue(i, arg);
@@ -823,6 +832,7 @@ function summarizeOptions(options) {
     `- provider: ${options.provider}`,
     `- model: ${options.model || '（未设置）'}`,
     `- workspace: ${options.workspace}`,
+    `- bootstrap-only: ${options.bootstrapOnly ? 'yes' : 'no'}`,
     `- telegram: ${options.withTelegram ? 'on' : 'off'}`,
     `- feishu: ${options.withFeishu ? 'on' : 'off'}`,
     `- skills: ${options.configureSkills ? 'on' : 'off'}`,
@@ -1030,6 +1040,12 @@ async function main() {
 
   console.log('[openclawdeploy] 部署计划');
   console.log(summarizeOptions(options));
+
+  if (options.bootstrapOnly) {
+    console.log('\n[openclawdeploy] bootstrap-only 模式：OpenClaw CLI 已由安装脚本处理完成，当前跳过配置写入与后续动作。');
+    console.log('[openclawdeploy] 现在可以重新扫描本机环境，再继续后续模型 / 渠道 / skills 配置。');
+    return;
+  }
 
   maybeInstallFeishuPlugin(options);
   setupAuth(options);

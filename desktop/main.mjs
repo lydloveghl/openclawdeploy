@@ -1,12 +1,19 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { app, BrowserWindow, ipcMain, dialog } from 'electron';
+import { spawnSync } from 'node:child_process';
 import { createRun, getRun } from '../scripts/run-manager.mjs';
 import { discoverCatalog } from '../scripts/discovery.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '..');
+
+function detectOpenClawInstalled() {
+  const command = process.platform === 'win32' ? 'openclaw.cmd' : 'openclaw';
+  const result = spawnSync(command, ['--version'], { stdio: 'ignore' });
+  return result.status === 0;
+}
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -30,6 +37,7 @@ function createWindow() {
 ipcMain.handle('openclawdeploy:getDefaults', async () => ({
   platform: process.platform,
   mode: 'desktop',
+  openclawInstalled: detectOpenClawInstalled(),
 }));
 
 ipcMain.handle('openclawdeploy:getCatalog', async (_event, options) =>

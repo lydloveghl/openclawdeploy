@@ -9,8 +9,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/1password/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "op"
       ],
       "env": []
@@ -37,8 +35,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/apple-notes/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "memo"
       ],
       "env": []
@@ -65,8 +61,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/apple-reminders/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "remindctl"
       ],
       "env": []
@@ -93,8 +87,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/bear-notes/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "grizzly"
       ],
       "env": []
@@ -121,8 +113,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/blogwatcher/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "blogwatcher"
       ],
       "env": []
@@ -149,8 +139,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/blucli/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "blu"
       ],
       "env": []
@@ -197,8 +185,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/camsnap/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "camsnap"
       ],
       "env": []
@@ -245,8 +231,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/clawhub/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "clawhub"
       ],
       "env": []
@@ -313,8 +297,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/eightctl/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "eightctl"
       ],
       "env": []
@@ -521,8 +503,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/gemini/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "gemini"
       ],
       "env": []
@@ -549,8 +529,9 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/gh-issues/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        ", "
+        "curl",
+        "git",
+        "gh"
       ],
       "env": [
         "GH_TOKEN"
@@ -574,8 +555,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/gifgrep/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "gifgrep"
       ],
       "env": []
@@ -604,8 +583,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/github/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "gh"
       ],
       "env": []
@@ -634,8 +611,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/gog/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "gog"
       ],
       "env": []
@@ -662,12 +637,9 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/goplaces/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "goplaces"
       ],
       "env": [
-        ": [",
         "GOOGLE_PLACES_API_KEY"
       ]
     },
@@ -713,8 +685,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/himalaya/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "himalaya"
       ],
       "env": []
@@ -741,8 +711,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/imsg/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "imsg"
       ],
       "env": []
@@ -769,8 +737,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/mcporter/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "mcporter"
       ],
       "env": []
@@ -797,8 +763,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/model-usage/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "codexbar"
       ],
       "env": []
@@ -825,12 +789,9 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/nano-banana-pro/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "uv"
       ],
       "env": [
-        ": [",
         "GEMINI_API_KEY"
       ]
     },
@@ -856,8 +817,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/nano-pdf/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "nano-pdf"
       ],
       "env": []
@@ -885,7 +844,6 @@
     "requirements": {
       "bins": [],
       "env": [
-        ": [",
         "NOTION_API_KEY"
       ]
     },
@@ -907,8 +865,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/obsidian/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "obsidian-cli"
       ],
       "env": []
@@ -935,12 +891,9 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/openai-image-gen/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "python3"
       ],
       "env": [
-        ": [",
         "OPENAI_API_KEY"
       ]
     },
@@ -966,8 +919,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/openai-whisper/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "whisper"
       ],
       "env": []
@@ -994,10 +945,9 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/openai-whisper-api/SKILL.md",
     "requirements": {
       "bins": [
-        ": ["
+        "curl"
       ],
       "env": [
-        ": [",
         "OPENAI_API_KEY"
       ]
     },
@@ -1019,8 +969,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/openhue/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "openhue"
       ],
       "env": []
@@ -1047,8 +995,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/oracle/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "oracle"
       ],
       "env": []
@@ -1075,8 +1021,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/ordercli/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "ordercli"
       ],
       "env": []
@@ -1105,8 +1049,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/peekaboo/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "peekaboo"
       ],
       "env": []
@@ -1133,12 +1075,9 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/sag/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "sag"
       ],
       "env": [
-        ": [",
         "ELEVENLABS_API_KEY"
       ]
     },
@@ -1164,8 +1103,8 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/session-logs/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        ", "
+        "jq",
+        "rg"
       ],
       "env": []
     },
@@ -1188,8 +1127,8 @@
     "requirements": {
       "bins": [],
       "env": [
-        ": [",
-        ", "
+        "SHERPA_ONNX_RUNTIME_DIR",
+        "SHERPA_ONNX_MODEL_DIR"
       ]
     },
     "install": {
@@ -1257,8 +1196,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/songsee/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "songsee"
       ],
       "env": []
@@ -1285,8 +1222,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/sonoscli/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "sonos"
       ],
       "env": []
@@ -1313,8 +1248,7 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/spotify-player/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
+        "spogo",
         "spotify_player"
       ],
       "env": []
@@ -1342,8 +1276,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/summarize/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "summarize"
       ],
       "env": []
@@ -1370,8 +1302,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/things-mac/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "things"
       ],
       "env": []
@@ -1398,7 +1328,7 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/tmux/SKILL.md",
     "requirements": {
       "bins": [
-        ": ["
+        "tmux"
       ],
       "env": []
     },
@@ -1420,11 +1350,11 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/trello/SKILL.md",
     "requirements": {
       "bins": [
-        ": ["
+        "jq"
       ],
       "env": [
-        ": [",
-        ", "
+        "TRELLO_API_KEY",
+        "TRELLO_TOKEN"
       ]
     },
     "install": {
@@ -1445,8 +1375,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/video-frames/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "ffmpeg"
       ],
       "env": []
@@ -1493,8 +1421,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/wacli/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "wacli"
       ],
       "env": []
@@ -1523,7 +1449,7 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/weather/SKILL.md",
     "requirements": {
       "bins": [
-        ": ["
+        "curl"
       ],
       "env": []
     },
@@ -1545,8 +1471,6 @@
     "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/xurl/SKILL.md",
     "requirements": {
       "bins": [
-        ": [",
-        "]\nbins",
         "xurl"
       ],
       "env": []

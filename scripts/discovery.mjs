@@ -37,11 +37,17 @@ function uniqueStrings(values) {
 }
 
 function extractList(raw, key) {
-  const regex = new RegExp(`${key}\\s*":\\s*\\[(.*?)\\]`, 'gs');
-  const match = raw.match(regex);
-  if (!match || match.length === 0) return [];
-  const joined = match.join('\n');
-  return uniqueStrings([...joined.matchAll(/"([^"]+)"/g)].map((item) => item[1]));
+  const patterns = [
+    new RegExp(`"${key}"\\s*:\\s*\\[([^\\]]*)\\]`, 'gs'),
+    new RegExp(`${key}\\s*:\\s*\\[([^\\]]*)\\]`, 'gs'),
+  ];
+  const values = [];
+  for (const pattern of patterns) {
+    for (const match of raw.matchAll(pattern)) {
+      values.push(...[...match[1].matchAll(/"([^"]+)"/g)].map((item) => item[1]));
+    }
+  }
+  return uniqueStrings(values);
 }
 
 function parseSkillFile(filePath, source) {
