@@ -1,0 +1,45 @@
+// ~/.openclaw/openclaw.json
+// 示例配置：OpenRouter + Telegram + Feishu
+{
+  identity: {
+    name: "OpenClaw",
+    theme: "multi-platform personal assistant",
+    emoji: "🦞",
+  },
+
+  agents: {
+    defaults: {
+      workspace: "~/.openclaw/workspace",
+      userTimezone: "Asia/Shanghai",
+      model: {
+        primary: "openrouter/anthropic/claude-sonnet-4-5",
+      },
+    },
+  },
+
+  channels: {
+    telegram: {
+      enabled: true,
+      botToken: "REPLACE_ME_TELEGRAM_BOT_TOKEN",
+      dmPolicy: "pairing",
+      groups: {
+        "*": {
+          requireMention: true,
+        },
+      },
+    },
+
+    feishu: {
+      enabled: true,
+      domain: "feishu",
+      dmPolicy: "pairing",
+      accounts: {
+        default: {
+          appId: "cli_xxx",
+          appSecret: "REPLACE_ME_FEISHU_APP_SECRET",
+          botName: "OpenClaw",
+        },
+      },
+    },
+  },
+}
