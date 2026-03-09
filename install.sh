@@ -32,9 +32,11 @@ else
   echo "[openclawdeploy] 已跳过 OpenClaw CLI 安装。"
 fi
 
-if ! command -v node >/dev/null 2>&1; then
+NODE_CMD="${OPENCLAWDEPLOY_NODE:-node}"
+
+if ! command -v "$NODE_CMD" >/dev/null 2>&1 && [[ ! -x "$NODE_CMD" ]]; then
   echo "[openclawdeploy] 未找到 node，请确认 OpenClaw 安装成功并已把 Node 加到 PATH。" >&2
   exit 1
 fi
 
-node "$SCRIPT_DIR/scripts/deploy.mjs" "${PASS_ARGS[@]}"
+"$NODE_CMD" "$SCRIPT_DIR/scripts/deploy.mjs" "${PASS_ARGS[@]}"

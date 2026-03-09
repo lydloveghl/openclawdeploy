@@ -42,6 +42,9 @@ const plist = `<?xml version="1.0" encoding="UTF-8"?>
 const launcher = `#!/usr/bin/env bash
 set -euo pipefail
 APP_ROOT="$(cd "$(dirname "$0")/../../.." && pwd)"
+if [[ -x "$APP_ROOT/node_modules/.bin/electron" ]]; then
+  exec "$APP_ROOT/node_modules/.bin/electron" "$APP_ROOT"
+fi
 exec node "$APP_ROOT/scripts/gui.mjs"
 `;
 

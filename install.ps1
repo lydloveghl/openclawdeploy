@@ -18,12 +18,16 @@ if (-not $SkipOpenClawInstall) {
   Write-Host "[openclawdeploy] 已跳过 OpenClaw CLI 安装。"
 }
 
-$node = Get-Command node -ErrorAction SilentlyContinue
-if (-not $node) {
-  throw "[openclawdeploy] 未找到 node，请确认 OpenClaw 安装成功并已把 Node 加到 PATH。"
+$nodeCmd = $env:OPENCLAWDEPLOY_NODE
+if (-not $nodeCmd) {
+  $node = Get-Command node -ErrorAction SilentlyContinue
+  if (-not $node) {
+    throw "[openclawdeploy] 未找到 node，请确认 OpenClaw 安装成功并已把 Node 加到 PATH。"
+  }
+  $nodeCmd = $node.Source
 }
 
-& node (Join-Path $ScriptDir 'scripts/deploy.mjs') @DeployArgs
+& $nodeCmd (Join-Path $ScriptDir 'scripts/deploy.mjs') @DeployArgs
 if ($LASTEXITCODE -ne 0) {
   exit $LASTEXITCODE
 }

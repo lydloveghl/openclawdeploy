@@ -1,9 +1,10 @@
 {
   "name": "openclawdeploy",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "description": "One-click OpenClaw deployment toolkit for macOS, Linux, and Windows.",
+  "main": "./desktop/main.mjs",
   "bin": {
     "openclawdeploy": "./scripts/deploy.mjs"
   },
@@ -11,9 +12,56 @@
     "deploy": "node ./scripts/deploy.mjs --help",
     "wizard": "node ./scripts/deploy.mjs --interactive",
     "gui": "node ./scripts/gui.mjs",
+    "desktop": "electron .",
+    "package:desktop": "electron-builder",
+    "package:dmg": "electron-builder --mac dmg",
+    "package:exe": "electron-builder --win nsis",
     "package:mac": "node ./scripts/package-macos-app.mjs"
   },
   "engines": {
     "node": ">=22"
+  },
+  "devDependencies": {
+    "electron": "^36.2.1",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "ai.openclaw.deploy.installer",
+    "productName": "OpenClawDeploy",
+    "asar": false,
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "desktop/**/*",
+      "gui/**/*",
+      "scripts/**/*",
+      "install.sh",
+      "install.ps1",
+      "README.md",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Development"
+    }
   }
 }

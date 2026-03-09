@@ -4,3 +4,4 @@ node_modules/
 *.tmp
 *.bak
 dist/
+release/
