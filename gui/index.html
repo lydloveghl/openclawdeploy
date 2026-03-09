@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenClawDeploy 安装器</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>OpenClawDeploy 安装器</h1>
+        <p>双击启动，浏览器里完成 OpenClaw 安装与配置，不用自己敲终端命令。</p>
+      </header>
+
+      <main>
+        <section class="card">
+          <h2>基础配置</h2>
+          <div class="grid">
+            <label>
+              工作目录
+              <input id="workspace" type="text" value="~/.openclaw/workspace" />
+            </label>
+            <label>
+              模型提供方
+              <select id="provider">
+                <option value="openrouter">OpenRouter</option>
+                <option value="openai">OpenAI</option>
+                <option value="anthropic">Anthropic</option>
+                <option value="custom">自定义 provider</option>
+                <option value="none">先跳过</option>
+              </select>
+            </label>
+            <label>
+              API Key（OpenAI / Anthropic / OpenRouter）
+              <input id="apiKey" type="password" placeholder="可留空" />
+            </label>
+            <label>
+              默认模型
+              <input id="model" type="text" placeholder="可留空，脚本会自动补默认值" />
+            </label>
+          </div>
+        </section>
+
+        <section class="card" id="customProviderCard">
+          <h2>自定义 Provider</h2>
+          <div class="grid">
+            <label>
+              Provider ID
+              <input id="customProviderId" type="text" placeholder="例如 myproxy" />
+            </label>
+            <label>
+              API Adapter
+              <select id="customApi">
+                <option value="openai-completions">openai-completions</option>
+                <option value="openai-responses">openai-responses</option>
+                <option value="anthropic-messages">anthropic-messages</option>
+                <option value="google-generative-ai">google-generative-ai</option>
+              </select>
+            </label>
+            <label>
+              Base URL
+              <input id="customBaseUrl" type="text" placeholder="https://example.com/v1" />
+            </label>
+            <label>
+              Model ID
+              <input id="customModelId" type="text" placeholder="例如 gpt-4.1" />
+            </label>
+            <label>
+              Model Name
+              <input id="customModelName" type="text" placeholder="可留空，默认同 Model ID" />
+            </label>
+            <label>
+              自定义 Provider API Key
+              <input id="customApiKey" type="password" placeholder="可留空" />
+            </label>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>渠道配置</h2>
+          <div class="stack">
+            <label class="checkbox"><input id="withTelegram" type="checkbox" /> 接入 Telegram</label>
+            <div class="grid nested" id="telegramFields">
+              <label>
+                Telegram Bot Token
+                <input id="telegramBotToken" type="password" placeholder="可留空" />
+              </label>
+              <label class="checkbox inline"><input id="telegramRequireMention" type="checkbox" checked /> 群聊默认需要 @ 才触发</label>
+            </div>
+
+            <label class="checkbox"><input id="withFeishu" type="checkbox" /> 接入 Feishu / Lark</label>
+            <div class="grid nested" id="feishuFields">
+              <label>
+                域名
+                <select id="feishuDomain">
+                  <option value="feishu">feishu</option>
+                  <option value="lark">lark</option>
+                </select>
+              </label>
+              <label>
+                App ID
+                <input id="feishuAppId" type="text" placeholder="cli_xxx" />
+              </label>
+              <label>
+                App Secret
+                <input id="feishuAppSecret" type="password" placeholder="可留空" />
+              </label>
+              <label>
+                Bot 名称
+                <input id="feishuBotName" type="text" value="OpenClaw" />
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Skills 配置</h2>
+          <div class="stack">
+            <label class="checkbox"><input id="configureSkills" type="checkbox" /> 写入 Skills 配置</label>
+            <div class="grid nested" id="skillsFields">
+              <label>
+                extraDirs（逗号分隔）
+                <input id="skillsExtraDirs" type="text" placeholder="~/my-skills,~/team-skills" />
+              </label>
+              <label>
+                allowBundled（逗号分隔）
+                <input id="skillsAllowBundled" type="text" placeholder="weather,apple-notes" />
+              </label>
+              <label>
+                nodeManager
+                <select id="skillsNodeManager">
+                  <option value="npm">npm</option>
+                  <option value="pnpm">pnpm</option>
+                  <option value="yarn">yarn</option>
+                  <option value="bun">bun</option>
+                </select>
+              </label>
+              <label>
+                watchDebounceMs
+                <input id="skillsWatchDebounceMs" type="number" value="250" min="0" />
+              </label>
+              <label class="checkbox inline"><input id="skillsWatch" type="checkbox" checked /> 开启 skills watcher</label>
+              <label class="checkbox inline"><input id="skillsPreferBrew" type="checkbox" checked /> 安装 skills 时优先 brew</label>
+            </div>
+
+            <label>
+              skills.entries JSON（高级，可留空）
+              <textarea id="skillEntriesJson" rows="7" placeholder='例如：{"sag":{"enabled":false},"nano-banana-pro":{"apiKey":"xxx","env":{"GEMINI_API_KEY":"xxx"}}}'></textarea>
+            </label>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>执行选项</h2>
+          <div class="grid">
+            <label class="checkbox inline"><input id="force" type="checkbox" /> 覆盖已有 openclaw.json（会自动备份）</label>
+            <label class="checkbox inline"><input id="skipDoctor" type="checkbox" /> 跳过 doctor</label>
+            <label class="checkbox inline"><input id="skipGatewayInstall" type="checkbox" /> 跳过 gateway install</label>
+            <label class="checkbox inline"><input id="skipGatewayStart" type="checkbox" /> 跳过 gateway start</label>
+          </div>
+        </section>
+
+        <section class="actions card">
+          <div class="button-row">
+            <button id="planBtn" class="secondary">先做 Dry Run</button>
+            <button id="runBtn">开始安装部署</button>
+          </div>
+          <p class="muted" id="platformInfo"></p>
+        </section>
+
+        <section class="card">
+          <h2>运行日志</h2>
+          <pre id="logs">还没开始。你可以先点“先做 Dry Run”，确认计划后再点“开始安装部署”。</pre>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

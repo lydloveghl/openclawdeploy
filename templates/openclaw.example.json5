@@ -1,5 +1,5 @@
 // ~/.openclaw/openclaw.json
-// 示例配置：OpenRouter + Telegram + Feishu
+// 示例配置：OpenRouter + Telegram + Feishu + Skills
 {
   identity: {
     name: "OpenClaw",
@@ -40,6 +40,22 @@
           botName: "OpenClaw",
         },
       },
+    },
+  },
+
+  skills: {
+    load: {
+      extraDirs: ["~/my-skills"],
+      watch: true,
+      watchDebounceMs: 250,
+    },
+    install: {
+      preferBrew: true,
+      nodeManager: "npm",
+    },
+    entries: {
+      sag: { enabled: false },
+      weather: { enabled: true },
     },
   },
 }

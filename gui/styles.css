@@ -1,0 +1,106 @@
+:root {
+  color-scheme: light dark;
+  --bg: #0b1020;
+  --card: #141b34;
+  --text: #e9eefc;
+  --muted: #9bb0e5;
+  --accent: #5b8cff;
+  --border: rgba(255, 255, 255, 0.12);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #0b1020, #121933);
+  color: var(--text);
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+header { margin-bottom: 20px; }
+h1 { margin: 0 0 8px; font-size: 32px; }
+p { margin: 0; color: var(--muted); }
+main { display: grid; gap: 16px; }
+.card {
+  background: rgba(20, 27, 52, 0.95);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+}
+h2 { margin: 0 0 14px; font-size: 20px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+.stack { display: grid; gap: 12px; }
+.nested {
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+}
+label {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+}
+.inline {
+  align-self: end;
+}
+input, select, textarea, button {
+  font: inherit;
+}
+input, select, textarea {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(8, 13, 28, 0.9);
+  color: var(--text);
+  padding: 10px 12px;
+}
+textarea { resize: vertical; }
+.button-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+button {
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 18px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+}
+button.secondary { background: #2e3f73; }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+pre {
+  margin: 0;
+  min-height: 320px;
+  max-height: 640px;
+  overflow: auto;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(8, 13, 28, 0.92);
+  border: 1px solid var(--border);
+  white-space: pre-wrap;
+  line-height: 1.45;
+}
+.muted { color: var(--muted); }
+.hidden { display: none; }
+@media (max-width: 720px) {
+  .container { padding: 14px; }
+  h1 { font-size: 26px; }
+}

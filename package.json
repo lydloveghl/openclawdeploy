@@ -1,6 +1,6 @@
 {
   "name": "openclawdeploy",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "description": "One-click OpenClaw deployment toolkit for macOS, Linux, and Windows.",
@@ -8,7 +8,10 @@
     "openclawdeploy": "./scripts/deploy.mjs"
   },
   "scripts": {
-    "deploy": "node ./scripts/deploy.mjs --help"
+    "deploy": "node ./scripts/deploy.mjs --help",
+    "wizard": "node ./scripts/deploy.mjs --interactive",
+    "gui": "node ./scripts/gui.mjs",
+    "package:mac": "node ./scripts/package-macos-app.mjs"
   },
   "engines": {
     "node": ">=22"
