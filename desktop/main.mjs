@@ -2,6 +2,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { app, BrowserWindow, ipcMain, dialog } from 'electron';
 import { createRun, getRun } from '../scripts/run-manager.mjs';
+import { discoverCatalog } from '../scripts/discovery.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -30,6 +31,17 @@ ipcMain.handle('openclawdeploy:getDefaults', async () => ({
   platform: process.platform,
   mode: 'desktop',
 }));
+
+ipcMain.handle('openclawdeploy:getCatalog', async (_event, options) =>
+  discoverCatalog({
+    projectRoot,
+    workspace: options?.workspace || '~/.openclaw/workspace',
+    remote: options?.remote !== false,
+    networkPreset: options?.networkPreset || 'global',
+    providerManifestUrl: options?.providerManifestUrl || '',
+    skillsManifestUrl: options?.skillsManifestUrl || '',
+  }),
+);
 
 ipcMain.handle('openclawdeploy:run', async (_event, options) => {
   try {

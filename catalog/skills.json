@@ -1,0 +1,1568 @@
+[
+  {
+    "id": "1password",
+    "name": "1password",
+    "description": "Set up and use 1Password CLI (op). Use when installing the CLI, enabling desktop app integration, signing in (single or multi-account), or reading/injecting/running secrets via op.",
+    "homepage": "https://developer.1password.com/docs/cli/get-started/",
+    "emoji": "🔐",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/1password/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "op"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install 1Password CLI (brew)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "apple-notes",
+    "name": "apple-notes",
+    "description": "Manage Apple Notes via the `memo` CLI on macOS (create, view, edit, delete, search, move, and export notes). Use when a user asks OpenClaw to add a note, list notes, search notes, or manage note folders.",
+    "homepage": "https://github.com/antoniorodr/memo",
+    "emoji": "📝",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/apple-notes/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "memo"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install memo via Homebrew"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "apple-reminders",
+    "name": "apple-reminders",
+    "description": "Manage Apple Reminders via remindctl CLI (list, add, edit, complete, delete). Supports lists, date filters, and JSON/plain output.",
+    "homepage": "https://github.com/steipete/remindctl",
+    "emoji": "⏰",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/apple-reminders/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "remindctl"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install remindctl via Homebrew"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "bear-notes",
+    "name": "bear-notes",
+    "description": "Create, search, and manage Bear notes via grizzly CLI.",
+    "homepage": "https://bear.app",
+    "emoji": "🐻",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/bear-notes/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "grizzly"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "go"
+      ],
+      "labels": [
+        "Install grizzly (go)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "blogwatcher",
+    "name": "blogwatcher",
+    "description": "Monitor blogs and RSS/Atom feeds for updates using the blogwatcher CLI.",
+    "homepage": "https://github.com/Hyaxia/blogwatcher",
+    "emoji": "📰",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/blogwatcher/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "blogwatcher"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "go"
+      ],
+      "labels": [
+        "Install blogwatcher (go)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "blucli",
+    "name": "blucli",
+    "description": "BluOS CLI (blu) for discovery, playback, grouping, and volume.",
+    "homepage": "https://blucli.sh",
+    "emoji": "🫐",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/blucli/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "blu"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "go"
+      ],
+      "labels": [
+        "Install blucli (go)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "bluebubbles",
+    "name": "bluebubbles",
+    "description": "Use when you need to send or manage iMessages via BlueBubbles (recommended iMessage integration). Calls go through the generic message tool with channel=\"bluebubbles\".",
+    "homepage": "",
+    "emoji": "🫧",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/bluebubbles/SKILL.md",
+    "requirements": {
+      "bins": [],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "camsnap",
+    "name": "camsnap",
+    "description": "Capture frames or clips from RTSP/ONVIF cameras.",
+    "homepage": "https://camsnap.ai",
+    "emoji": "📸",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/camsnap/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "camsnap"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install camsnap (brew)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "canvas",
+    "name": "canvas",
+    "description": "No description",
+    "homepage": "",
+    "emoji": "",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/canvas/SKILL.md",
+    "requirements": {
+      "bins": [],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "clawhub",
+    "name": "clawhub",
+    "description": "Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.",
+    "homepage": "",
+    "emoji": "",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/clawhub/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "clawhub"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "node"
+      ],
+      "labels": [
+        "Install ClawHub CLI (npm)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "coding-agent",
+    "name": "coding-agent",
+    "description": "Delegate coding tasks to Codex, Claude Code, or Pi agents via background process. Use when: (1) building/creating new features or apps, (2) reviewing PRs (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that needs file exploration. NOT for: simple one-liner fixes (just edit), reading code (use read tool), thread-bound ACP harness requests in chat (for example spawn/run Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:\"acp\"), or any work in ~/clawd workspace (never spawn agents here). Claude Code: use --print --permission-mode bypassPermissions (no PTY). Codex/Pi/OpenCode: pty:true required.",
+    "homepage": "",
+    "emoji": "🧩",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/coding-agent/SKILL.md",
+    "requirements": {
+      "bins": [],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "discord",
+    "name": "discord",
+    "description": "Discord ops via the message tool (channel=discord).",
+    "homepage": "",
+    "emoji": "🎮",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/discord/SKILL.md",
+    "requirements": {
+      "bins": [],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "eightctl",
+    "name": "eightctl",
+    "description": "Control Eight Sleep pods (status, temperature, alarms, schedules).",
+    "homepage": "https://eightctl.sh",
+    "emoji": "🎛️",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/eightctl/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "eightctl"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "go"
+      ],
+      "labels": [
+        "Install eightctl (go)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "feishu-bitable",
+    "name": "feishu-bitable",
+    "description": "|",
+    "homepage": "",
+    "emoji": "",
+    "source": "extensions",
+    "location": "/Users/guohailin/.openclaw/extensions/feishu-openclaw-plugin/skills/feishu-bitable/SKILL.md",
+    "requirements": {
+      "bins": [],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "feishu-calendar",
+    "name": "feishu-calendar",
+    "description": "|",
+    "homepage": "",
+    "emoji": "",
+    "source": "extensions",
+    "location": "/Users/guohailin/.openclaw/extensions/feishu-openclaw-plugin/skills/feishu-calendar/SKILL.md",
+    "requirements": {
+      "bins": [],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "feishu-channel-rules",
+    "name": "feishu-channel-rules",
+    "description": "|",
+    "homepage": "",
+    "emoji": "",
+    "source": "extensions",
+    "location": "/Users/guohailin/.openclaw/extensions/feishu-openclaw-plugin/skills/feishu-channel-rules/SKILL.md",
+    "requirements": {
+      "bins": [],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "feishu-create-doc",
+    "name": "feishu-create-doc",
+    "description": "|",
+    "homepage": "",
+    "emoji": "",
+    "source": "extensions",
+    "location": "/Users/guohailin/.openclaw/extensions/feishu-openclaw-plugin/skills/feishu-create-doc/SKILL.md",
+    "requirements": {
+      "bins": [],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "feishu-fetch-doc",
+    "name": "feishu-fetch-doc",
+    "description": "|",
+    "homepage": "",
+    "emoji": "",
+    "source": "extensions",
+    "location": "/Users/guohailin/.openclaw/extensions/feishu-openclaw-plugin/skills/feishu-fetch-doc/SKILL.md",
+    "requirements": {
+      "bins": [],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "feishu-im-read",
+    "name": "feishu-im-read",
+    "description": "|",
+    "homepage": "",
+    "emoji": "",
+    "source": "extensions",
+    "location": "/Users/guohailin/.openclaw/extensions/feishu-openclaw-plugin/skills/feishu-im-read/SKILL.md",
+    "requirements": {
+      "bins": [],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "feishu-task",
+    "name": "feishu-task",
+    "description": "|",
+    "homepage": "",
+    "emoji": "",
+    "source": "extensions",
+    "location": "/Users/guohailin/.openclaw/extensions/feishu-openclaw-plugin/skills/feishu-task/SKILL.md",
+    "requirements": {
+      "bins": [],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "feishu-troubleshoot",
+    "name": "feishu-troubleshoot",
+    "description": "|",
+    "homepage": "",
+    "emoji": "",
+    "source": "extensions",
+    "location": "/Users/guohailin/.openclaw/extensions/feishu-openclaw-plugin/skills/feishu-troubleshoot/SKILL.md",
+    "requirements": {
+      "bins": [],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "feishu-update-doc",
+    "name": "feishu-update-doc",
+    "description": "|",
+    "homepage": "",
+    "emoji": "",
+    "source": "extensions",
+    "location": "/Users/guohailin/.openclaw/extensions/feishu-openclaw-plugin/skills/feishu-update-doc/SKILL.md",
+    "requirements": {
+      "bins": [],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "gemini",
+    "name": "gemini",
+    "description": "Gemini CLI for one-shot Q&A, summaries, and generation.",
+    "homepage": "https://ai.google.dev/",
+    "emoji": "♊️",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/gemini/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "gemini"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install Gemini CLI (brew)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "gh-issues",
+    "name": "gh-issues",
+    "description": "Fetch GitHub issues, spawn sub-agents to implement fixes and open PRs, then monitor and address PR review comments. Usage: /gh-issues [owner/repo] [--label bug] [--limit 5] [--milestone v1.0] [--assignee @me] [--fork user/repo] [--watch] [--interval 5] [--reviews-only] [--cron] [--dry-run] [--model glm-5] [--notify-channel -1002381931352]",
+    "homepage": "",
+    "emoji": "",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/gh-issues/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        ", "
+      ],
+      "env": [
+        "GH_TOKEN"
+      ]
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": true,
+    "primaryEnv": "GH_TOKEN"
+  },
+  {
+    "id": "gifgrep",
+    "name": "gifgrep",
+    "description": "Search GIF providers with CLI/TUI, download results, and extract stills/sheets.",
+    "homepage": "https://gifgrep.com",
+    "emoji": "🧲",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/gifgrep/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "gifgrep"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew",
+        "go"
+      ],
+      "labels": [
+        "Install gifgrep (brew)",
+        "Install gifgrep (go)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "github",
+    "name": "github",
+    "description": "GitHub operations via `gh` CLI: issues, PRs, CI runs, code review, API queries. Use when: (1) checking PR status or CI, (2) creating/commenting on issues, (3) listing/filtering PRs or issues, (4) viewing run logs. NOT for: complex web UI interactions requiring manual browser flows (use browser tooling when available), bulk operations across many repos (script with gh api), or when gh auth is not configured.",
+    "homepage": "",
+    "emoji": "🐙",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/github/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "gh"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew",
+        "apt"
+      ],
+      "labels": [
+        "Install GitHub CLI (brew)",
+        "Install GitHub CLI (apt)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "gog",
+    "name": "gog",
+    "description": "Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs.",
+    "homepage": "https://gogcli.sh",
+    "emoji": "🎮",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/gog/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "gog"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install gog (brew)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "goplaces",
+    "name": "goplaces",
+    "description": "Query Google Places API (New) via the goplaces CLI for text search, place details, resolve, and reviews. Use for human-friendly place lookup or JSON output for scripts.",
+    "homepage": "https://github.com/steipete/goplaces",
+    "emoji": "📍",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/goplaces/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "goplaces"
+      ],
+      "env": [
+        ": [",
+        "GOOGLE_PLACES_API_KEY"
+      ]
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install goplaces (brew)"
+      ]
+    },
+    "hasApiKey": true,
+    "primaryEnv": "GOOGLE_PLACES_API_KEY"
+  },
+  {
+    "id": "healthcheck",
+    "name": "healthcheck",
+    "description": "Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).",
+    "homepage": "",
+    "emoji": "",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/healthcheck/SKILL.md",
+    "requirements": {
+      "bins": [],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "himalaya",
+    "name": "himalaya",
+    "description": "CLI to manage emails via IMAP/SMTP. Use `himalaya` to list, read, write, reply, forward, search, and organize emails from the terminal. Supports multiple accounts and message composition with MML (MIME Meta Language).",
+    "homepage": "https://github.com/pimalaya/himalaya",
+    "emoji": "📧",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/himalaya/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "himalaya"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install Himalaya (brew)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "imsg",
+    "name": "imsg",
+    "description": "iMessage/SMS CLI for listing chats, history, and sending messages via Messages.app.",
+    "homepage": "https://imsg.to",
+    "emoji": "📨",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/imsg/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "imsg"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install imsg (brew)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "mcporter",
+    "name": "mcporter",
+    "description": "Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.",
+    "homepage": "http://mcporter.dev",
+    "emoji": "📦",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/mcporter/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "mcporter"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "node"
+      ],
+      "labels": [
+        "Install mcporter (node)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "model-usage",
+    "name": "model-usage",
+    "description": "Use CodexBar CLI local cost usage to summarize per-model usage for Codex or Claude, including the current (most recent) model or a full model breakdown. Trigger when asked for model-level usage/cost data from codexbar, or when you need a scriptable per-model summary from codexbar cost JSON.",
+    "homepage": "",
+    "emoji": "📊",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/model-usage/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "codexbar"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install CodexBar (brew cask)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "nano-banana-pro",
+    "name": "nano-banana-pro",
+    "description": "Generate or edit images via Gemini 3 Pro Image (Nano Banana Pro).",
+    "homepage": "https://ai.google.dev/",
+    "emoji": "🍌",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/nano-banana-pro/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "uv"
+      ],
+      "env": [
+        ": [",
+        "GEMINI_API_KEY"
+      ]
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install uv (brew)"
+      ]
+    },
+    "hasApiKey": true,
+    "primaryEnv": "GEMINI_API_KEY"
+  },
+  {
+    "id": "nano-pdf",
+    "name": "nano-pdf",
+    "description": "Edit PDFs with natural-language instructions using the nano-pdf CLI.",
+    "homepage": "https://pypi.org/project/nano-pdf/",
+    "emoji": "📄",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/nano-pdf/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "nano-pdf"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "uv"
+      ],
+      "labels": [
+        "Install nano-pdf (uv)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "notion",
+    "name": "notion",
+    "description": "Notion API for creating and managing pages, databases, and blocks.",
+    "homepage": "https://developers.notion.com",
+    "emoji": "📝",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/notion/SKILL.md",
+    "requirements": {
+      "bins": [],
+      "env": [
+        ": [",
+        "NOTION_API_KEY"
+      ]
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": true,
+    "primaryEnv": "NOTION_API_KEY"
+  },
+  {
+    "id": "obsidian",
+    "name": "obsidian",
+    "description": "Work with Obsidian vaults (plain Markdown notes) and automate via obsidian-cli.",
+    "homepage": "https://help.obsidian.md",
+    "emoji": "💎",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/obsidian/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "obsidian-cli"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install obsidian-cli (brew)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "openai-image-gen",
+    "name": "openai-image-gen",
+    "description": "Batch-generate images via OpenAI Images API. Random prompt sampler + `index.html` gallery.",
+    "homepage": "https://platform.openai.com/docs/api-reference/images",
+    "emoji": "🖼️",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/openai-image-gen/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "python3"
+      ],
+      "env": [
+        ": [",
+        "OPENAI_API_KEY"
+      ]
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install Python (brew)"
+      ]
+    },
+    "hasApiKey": true,
+    "primaryEnv": "OPENAI_API_KEY"
+  },
+  {
+    "id": "openai-whisper",
+    "name": "openai-whisper",
+    "description": "Local speech-to-text with the Whisper CLI (no API key).",
+    "homepage": "https://openai.com/research/whisper",
+    "emoji": "🎙️",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/openai-whisper/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "whisper"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install OpenAI Whisper (brew)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "openai-whisper-api",
+    "name": "openai-whisper-api",
+    "description": "Transcribe audio via OpenAI Audio Transcriptions API (Whisper).",
+    "homepage": "https://platform.openai.com/docs/guides/speech-to-text",
+    "emoji": "☁️",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/openai-whisper-api/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": ["
+      ],
+      "env": [
+        ": [",
+        "OPENAI_API_KEY"
+      ]
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": true,
+    "primaryEnv": "OPENAI_API_KEY"
+  },
+  {
+    "id": "openhue",
+    "name": "openhue",
+    "description": "Control Philips Hue lights and scenes via the OpenHue CLI.",
+    "homepage": "https://www.openhue.io/cli",
+    "emoji": "💡",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/openhue/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "openhue"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install OpenHue CLI (brew)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "oracle",
+    "name": "oracle",
+    "description": "Best practices for using the oracle CLI (prompt + file bundling, engines, sessions, and file attachment patterns).",
+    "homepage": "https://askoracle.dev",
+    "emoji": "🧿",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/oracle/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "oracle"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "node"
+      ],
+      "labels": [
+        "Install oracle (node)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "ordercli",
+    "name": "ordercli",
+    "description": "Foodora-only CLI for checking past orders and active order status (Deliveroo WIP).",
+    "homepage": "https://ordercli.sh",
+    "emoji": "🛵",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/ordercli/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "ordercli"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew",
+        "go"
+      ],
+      "labels": [
+        "Install ordercli (brew)",
+        "Install ordercli (go)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "peekaboo",
+    "name": "peekaboo",
+    "description": "Capture and automate macOS UI with the Peekaboo CLI.",
+    "homepage": "https://peekaboo.boo",
+    "emoji": "👀",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/peekaboo/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "peekaboo"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install Peekaboo (brew)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "sag",
+    "name": "sag",
+    "description": "ElevenLabs text-to-speech with mac-style say UX.",
+    "homepage": "https://sag.sh",
+    "emoji": "🗣️",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/sag/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "sag"
+      ],
+      "env": [
+        ": [",
+        "ELEVENLABS_API_KEY"
+      ]
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install sag (brew)"
+      ]
+    },
+    "hasApiKey": true,
+    "primaryEnv": "ELEVENLABS_API_KEY"
+  },
+  {
+    "id": "session-logs",
+    "name": "session-logs",
+    "description": "Search and analyze your own session logs (older/parent conversations) using jq.",
+    "homepage": "",
+    "emoji": "📜",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/session-logs/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        ", "
+      ],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "sherpa-onnx-tts",
+    "name": "sherpa-onnx-tts",
+    "description": "Local text-to-speech via sherpa-onnx (offline, no cloud)",
+    "homepage": "",
+    "emoji": "🗣️",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/sherpa-onnx-tts/SKILL.md",
+    "requirements": {
+      "bins": [],
+      "env": [
+        ": [",
+        ", "
+      ]
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "download"
+      ],
+      "labels": [
+        "Download sherpa-onnx runtime (macOS)",
+        "Download sherpa-onnx runtime (Linux x64)",
+        "Download sherpa-onnx runtime (Windows x64)",
+        "Download Piper en_US lessac (high)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "skill-creator",
+    "name": "skill-creator",
+    "description": "Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.",
+    "homepage": "",
+    "emoji": "",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/skill-creator/SKILL.md",
+    "requirements": {
+      "bins": [],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "slack",
+    "name": "slack",
+    "description": "Use when you need to control Slack from OpenClaw via the slack tool, including reacting to messages or pinning/unpinning items in Slack channels or DMs.",
+    "homepage": "",
+    "emoji": "💬",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/slack/SKILL.md",
+    "requirements": {
+      "bins": [],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "songsee",
+    "name": "songsee",
+    "description": "Generate spectrograms and feature-panel visualizations from audio with the songsee CLI.",
+    "homepage": "https://github.com/steipete/songsee",
+    "emoji": "🌊",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/songsee/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "songsee"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install songsee (brew)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "sonoscli",
+    "name": "sonoscli",
+    "description": "Control Sonos speakers (discover/status/play/volume/group).",
+    "homepage": "https://sonoscli.sh",
+    "emoji": "🔊",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/sonoscli/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "sonos"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "go"
+      ],
+      "labels": [
+        "Install sonoscli (go)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "spotify-player",
+    "name": "spotify-player",
+    "description": "Terminal Spotify playback/search via spogo (preferred) or spotify_player.",
+    "homepage": "https://www.spotify.com",
+    "emoji": "🎵",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/spotify-player/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "spotify_player"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install spogo (brew)",
+        "Install spotify_player (brew)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "summarize",
+    "name": "summarize",
+    "description": "Summarize or extract text/transcripts from URLs, podcasts, and local files (great fallback for “transcribe this YouTube/video”).",
+    "homepage": "https://summarize.sh",
+    "emoji": "🧾",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/summarize/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "summarize"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install summarize (brew)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "things-mac",
+    "name": "things-mac",
+    "description": "Manage Things 3 via the `things` CLI on macOS (add/update projects+todos via URL scheme; read/search/list from the local Things database). Use when a user asks OpenClaw to add a task to Things, list inbox/today/upcoming, search tasks, or inspect projects/areas/tags.",
+    "homepage": "https://github.com/ossianhempel/things3-cli",
+    "emoji": "✅",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/things-mac/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "things"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "go"
+      ],
+      "labels": [
+        "Install things3-cli (go)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "tmux",
+    "name": "tmux",
+    "description": "Remote-control tmux sessions for interactive CLIs by sending keystrokes and scraping pane output.",
+    "homepage": "",
+    "emoji": "🧵",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/tmux/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": ["
+      ],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "trello",
+    "name": "trello",
+    "description": "Manage Trello boards, lists, and cards via the Trello REST API.",
+    "homepage": "https://developer.atlassian.com/cloud/trello/rest/",
+    "emoji": "📋",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/trello/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": ["
+      ],
+      "env": [
+        ": [",
+        ", "
+      ]
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "video-frames",
+    "name": "video-frames",
+    "description": "Extract frames or short clips from videos using ffmpeg.",
+    "homepage": "https://ffmpeg.org",
+    "emoji": "🎞️",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/video-frames/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "ffmpeg"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew"
+      ],
+      "labels": [
+        "Install ffmpeg (brew)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "voice-call",
+    "name": "voice-call",
+    "description": "Start voice calls via the OpenClaw voice-call plugin.",
+    "homepage": "",
+    "emoji": "📞",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/voice-call/SKILL.md",
+    "requirements": {
+      "bins": [],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "wacli",
+    "name": "wacli",
+    "description": "Send WhatsApp messages to other people or search/sync WhatsApp history via the wacli CLI (not for normal user chats).",
+    "homepage": "https://wacli.sh",
+    "emoji": "📱",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/wacli/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "wacli"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew",
+        "go"
+      ],
+      "labels": [
+        "Install wacli (brew)",
+        "Install wacli (go)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "weather",
+    "name": "weather",
+    "description": "Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.",
+    "homepage": "https://wttr.in/:help",
+    "emoji": "🌤️",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/weather/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": ["
+      ],
+      "env": []
+    },
+    "install": {
+      "available": false,
+      "kinds": [],
+      "labels": []
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  },
+  {
+    "id": "xurl",
+    "name": "xurl",
+    "description": "A CLI tool for making authenticated requests to the X (Twitter) API. Use this skill when you need to post tweets, reply, quote, search, read posts, manage followers, send DMs, upload media, or interact with any X API v2 endpoint.",
+    "homepage": "",
+    "emoji": "𝕏",
+    "source": "bundled",
+    "location": "/Users/guohailin/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/xurl/SKILL.md",
+    "requirements": {
+      "bins": [
+        ": [",
+        "]\nbins",
+        "xurl"
+      ],
+      "env": []
+    },
+    "install": {
+      "available": true,
+      "kinds": [
+        "brew",
+        "npm"
+      ],
+      "labels": [
+        "Install xurl (brew)",
+        "Install xurl (npm)"
+      ]
+    },
+    "hasApiKey": false,
+    "primaryEnv": ""
+  }
+]

@@ -12,10 +12,11 @@
     "deploy": "node ./scripts/deploy.mjs --help",
     "wizard": "node ./scripts/deploy.mjs --interactive",
     "gui": "node ./scripts/gui.mjs",
-    "desktop": "electron .",
-    "package:desktop": "electron-builder",
-    "package:dmg": "electron-builder --mac dmg",
-    "package:exe": "electron-builder --win nsis",
+    "desktop": "node ./scripts/build-catalog.mjs && electron .",
+    "catalog": "node ./scripts/build-catalog.mjs",
+    "package:desktop": "node ./scripts/build-catalog.mjs && electron-builder",
+    "package:dmg": "node ./scripts/build-catalog.mjs && electron-builder --mac dmg",
+    "package:exe": "node ./scripts/build-catalog.mjs && electron-builder --win nsis",
     "package:mac": "node ./scripts/package-macos-app.mjs"
   },
   "engines": {
@@ -33,6 +34,7 @@
       "output": "release"
     },
     "files": [
+      "catalog/**/*",
       "desktop/**/*",
       "gui/**/*",
       "scripts/**/*",

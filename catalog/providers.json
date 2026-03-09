@@ -1,0 +1,292 @@
+[
+  {
+    "id": "none",
+    "title": "先跳过",
+    "summary": "先把 OpenClaw 和 Gateway 装起来，模型稍后再接。",
+    "defaultModel": "",
+    "automated": true,
+    "authHint": "skip",
+    "docPath": "",
+    "source": "built-in"
+  },
+  {
+    "id": "openrouter",
+    "title": "OpenRouter",
+    "summary": "Use OpenRouter's unified API to access many models in OpenClaw",
+    "docPath": "",
+    "defaultModel": "openrouter/anthropic/claude-sonnet-4-5",
+    "automated": true,
+    "authHint": "installer",
+    "source": "local-docs"
+  },
+  {
+    "id": "openai",
+    "title": "OpenAI",
+    "summary": "Use OpenAI via API keys or Codex subscription in OpenClaw",
+    "docPath": "",
+    "defaultModel": "openai/gpt-5.4",
+    "automated": true,
+    "authHint": "installer",
+    "source": "local-docs"
+  },
+  {
+    "id": "anthropic",
+    "title": "Anthropic",
+    "summary": "Use Anthropic Claude via API keys or setup-token in OpenClaw",
+    "docPath": "",
+    "defaultModel": "anthropic/claude-opus-4-6",
+    "automated": true,
+    "authHint": "installer",
+    "source": "local-docs"
+  },
+  {
+    "id": "ollama",
+    "title": "Ollama",
+    "summary": "Run OpenClaw with Ollama (local LLM runtime)",
+    "docPath": "",
+    "defaultModel": "ollama/qwen2.5-coder:latest",
+    "automated": false,
+    "authHint": "manual-local",
+    "source": "local-docs"
+  },
+  {
+    "id": "bedrock",
+    "title": "Amazon Bedrock",
+    "summary": "Use Amazon Bedrock (Converse API) models with OpenClaw",
+    "docPath": "",
+    "defaultModel": "",
+    "automated": false,
+    "authHint": "manual",
+    "source": "local-docs"
+  },
+  {
+    "id": "claude-max-api-proxy",
+    "title": "Claude Max API Proxy",
+    "summary": "Community proxy to expose Claude subscription credentials as an OpenAI-compatible endpoint",
+    "docPath": "",
+    "defaultModel": "",
+    "automated": false,
+    "authHint": "manual",
+    "source": "local-docs"
+  },
+  {
+    "id": "cloudflare-ai-gateway",
+    "title": "Cloudflare AI Gateway",
+    "summary": "Cloudflare AI Gateway setup (auth + model selection)",
+    "docPath": "",
+    "defaultModel": "",
+    "automated": false,
+    "authHint": "manual",
+    "source": "local-docs"
+  },
+  {
+    "id": "deepgram",
+    "title": "Deepgram",
+    "summary": "Deepgram transcription for inbound voice notes",
+    "docPath": "",
+    "defaultModel": "",
+    "automated": false,
+    "authHint": "manual",
+    "source": "local-docs"
+  },
+  {
+    "id": "github-copilot",
+    "title": "GitHub Copilot",
+    "summary": "Sign in to GitHub Copilot from OpenClaw using the device flow",
+    "docPath": "",
+    "defaultModel": "github-copilot/gpt-5",
+    "automated": false,
+    "authHint": "oauth",
+    "source": "local-docs"
+  },
+  {
+    "id": "glm",
+    "title": "GLM Models",
+    "summary": "GLM model family overview + how to use it in OpenClaw",
+    "docPath": "",
+    "defaultModel": "glm/glm-4.5",
+    "automated": false,
+    "authHint": "manual",
+    "source": "local-docs"
+  },
+  {
+    "id": "huggingface",
+    "title": "Hugging Face (Inference)",
+    "summary": "Hugging Face Inference setup (auth + model selection)",
+    "docPath": "",
+    "defaultModel": "",
+    "automated": false,
+    "authHint": "manual",
+    "source": "local-docs"
+  },
+  {
+    "id": "kilocode",
+    "title": "kilocode",
+    "summary": "Use Kilo Gateway's unified API to access many models in OpenClaw",
+    "docPath": "",
+    "defaultModel": "",
+    "automated": false,
+    "authHint": "manual",
+    "source": "local-docs"
+  },
+  {
+    "id": "litellm",
+    "title": "litellm",
+    "summary": "Run OpenClaw through LiteLLM Proxy for unified model access and cost tracking",
+    "docPath": "",
+    "defaultModel": "",
+    "automated": false,
+    "authHint": "manual",
+    "source": "local-docs"
+  },
+  {
+    "id": "minimax",
+    "title": "MiniMax",
+    "summary": "Use MiniMax M2.5 in OpenClaw",
+    "docPath": "",
+    "defaultModel": "minimax/hailuo-02",
+    "automated": false,
+    "authHint": "oauth",
+    "source": "local-docs"
+  },
+  {
+    "id": "mistral",
+    "title": "Mistral",
+    "summary": "Use Mistral models and Voxtral transcription with OpenClaw",
+    "docPath": "",
+    "defaultModel": "mistral/mistral-medium-latest",
+    "automated": false,
+    "authHint": "manual",
+    "source": "local-docs"
+  },
+  {
+    "id": "moonshot",
+    "title": "Moonshot AI",
+    "summary": "Configure Moonshot K2 vs Kimi Coding (separate providers + keys)",
+    "docPath": "",
+    "defaultModel": "moonshot/kimi-k2.5",
+    "automated": false,
+    "authHint": "manual",
+    "source": "local-docs"
+  },
+  {
+    "id": "nvidia",
+    "title": "NVIDIA",
+    "summary": "Use NVIDIA's OpenAI-compatible API in OpenClaw",
+    "docPath": "",
+    "defaultModel": "",
+    "automated": false,
+    "authHint": "manual",
+    "source": "local-docs"
+  },
+  {
+    "id": "opencode",
+    "title": "OpenCode Zen",
+    "summary": "Use OpenCode Zen (curated models) with OpenClaw",
+    "docPath": "",
+    "defaultModel": "",
+    "automated": false,
+    "authHint": "manual",
+    "source": "local-docs"
+  },
+  {
+    "id": "qianfan",
+    "title": "Qianfan",
+    "summary": "Use Qianfan's unified API to access many models in OpenClaw",
+    "docPath": "",
+    "defaultModel": "",
+    "automated": false,
+    "authHint": "manual",
+    "source": "local-docs"
+  },
+  {
+    "id": "qwen",
+    "title": "Qwen",
+    "summary": "Use Qwen OAuth (free tier) in OpenClaw",
+    "docPath": "",
+    "defaultModel": "qwen-portal/coder-model",
+    "automated": false,
+    "authHint": "oauth",
+    "source": "local-docs"
+  },
+  {
+    "id": "synthetic",
+    "title": "Synthetic",
+    "summary": "Use Synthetic's Anthropic-compatible API in OpenClaw",
+    "docPath": "",
+    "defaultModel": "",
+    "automated": false,
+    "authHint": "manual",
+    "source": "local-docs"
+  },
+  {
+    "id": "together",
+    "title": "together",
+    "summary": "Together AI setup (auth + model selection)",
+    "docPath": "",
+    "defaultModel": "together/deepseek-ai/DeepSeek-R1",
+    "automated": false,
+    "authHint": "manual",
+    "source": "local-docs"
+  },
+  {
+    "id": "venice",
+    "title": "Venice AI",
+    "summary": "Use Venice AI privacy-focused models in OpenClaw",
+    "docPath": "",
+    "defaultModel": "",
+    "automated": false,
+    "authHint": "manual",
+    "source": "local-docs"
+  },
+  {
+    "id": "vercel-ai-gateway",
+    "title": "Vercel AI Gateway",
+    "summary": "Vercel AI Gateway setup (auth + model selection)",
+    "docPath": "",
+    "defaultModel": "",
+    "automated": false,
+    "authHint": "manual",
+    "source": "local-docs"
+  },
+  {
+    "id": "vllm",
+    "title": "vLLM",
+    "summary": "Run OpenClaw with vLLM (OpenAI-compatible local server)",
+    "docPath": "",
+    "defaultModel": "",
+    "automated": false,
+    "authHint": "manual-local",
+    "source": "local-docs"
+  },
+  {
+    "id": "xiaomi",
+    "title": "Xiaomi MiMo",
+    "summary": "Use Xiaomi MiMo (mimo-v2-flash) with OpenClaw",
+    "docPath": "",
+    "defaultModel": "xiaomi/mimo-v2-flash",
+    "automated": false,
+    "authHint": "manual",
+    "source": "local-docs"
+  },
+  {
+    "id": "zai",
+    "title": "Z.AI",
+    "summary": "Use Z.AI (GLM models) with OpenClaw",
+    "docPath": "",
+    "defaultModel": "zai/glm-4.5",
+    "automated": false,
+    "authHint": "manual",
+    "source": "local-docs"
+  },
+  {
+    "id": "custom",
+    "title": "自定义 Provider",
+    "summary": "用于自建代理、企业网关，或 OpenAI/Anthropic 兼容接口。",
+    "defaultModel": "",
+    "automated": false,
+    "authHint": "custom",
+    "docPath": "",
+    "source": "built-in"
+  }
+]

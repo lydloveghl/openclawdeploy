@@ -25,9 +25,15 @@ case "$(uname -s)" in
     ;;
 esac
 
+INSTALLER_URL="${OPENCLAWDEPLOY_INSTALLER_URL:-https://openclaw.ai/install.sh}"
+if [[ -n "${OPENCLAWDEPLOY_NPM_REGISTRY:-}" ]]; then
+  export npm_config_registry="$OPENCLAWDEPLOY_NPM_REGISTRY"
+  export NPM_CONFIG_REGISTRY="$OPENCLAWDEPLOY_NPM_REGISTRY"
+fi
+
 if [[ "$SKIP_INSTALL" != "1" ]]; then
-  echo "[openclawdeploy] 开始安装 OpenClaw CLI（使用官方 install.sh，跳过交互式 onboard）..."
-  curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --no-onboard
+  echo "[openclawdeploy] 开始安装 OpenClaw CLI（使用安装脚本：$INSTALLER_URL，跳过交互式 onboard）..."
+  curl -fsSL --proto '=https' --tlsv1.2 "$INSTALLER_URL" | bash -s -- --no-onboard
 else
   echo "[openclawdeploy] 已跳过 OpenClaw CLI 安装。"
 fi

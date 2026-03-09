@@ -88,6 +88,14 @@ export function createRun(projectRoot, options = {}, meta = {}) {
   const args = buildArgs(options);
   const env = {
     ...process.env,
+    ...(options.npmRegistry
+      ? {
+          OPENCLAWDEPLOY_NPM_REGISTRY: options.npmRegistry,
+          npm_config_registry: options.npmRegistry,
+          NPM_CONFIG_REGISTRY: options.npmRegistry,
+        }
+      : {}),
+    ...(options.installerUrl ? { OPENCLAWDEPLOY_INSTALLER_URL: options.installerUrl } : {}),
     ...(meta.env || {}),
   };
 

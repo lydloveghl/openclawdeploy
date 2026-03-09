@@ -5,6 +5,7 @@ import http from 'node:http';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { createRun, getRun } from './run-manager.mjs';
+import { discoverCatalog } from './discovery.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -72,6 +73,23 @@ const server = http.createServer(async (req, res) => {
 
     if (req.method === 'GET' && url.pathname === '/api/defaults') {
       return json(res, 200, { platform: process.platform, mode: 'browser' });
+    }
+
+    if (req.method === 'GET' && url.pathname === '/api/catalog') {
+      const workspace = url.searchParams.get('workspace') || '~/.openclaw/workspace';
+      const remote = url.searchParams.get('remote') !== 'false';
+      const networkPreset = url.searchParams.get('networkPreset') || 'global';
+      const providerManifestUrl = url.searchParams.get('providerManifestUrl') || '';
+      const skillsManifestUrl = url.searchParams.get('skillsManifestUrl') || '';
+      const catalog = await discoverCatalog({
+        projectRoot,
+        workspace,
+        remote,
+        networkPreset,
+        providerManifestUrl,
+        skillsManifestUrl,
+      });
+      return json(res, 200, catalog);
     }
 
     if (req.method === 'POST' && url.pathname === '/api/run') {

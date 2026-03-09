@@ -9,9 +9,18 @@ $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 Write-Host "[openclawdeploy] Windows 官方推荐优先使用 WSL2，但这里也支持原生 PowerShell 安装。"
 
+$installerUrl = $env:OPENCLAWDEPLOY_INSTALLER_URL
+if (-not $installerUrl) {
+  $installerUrl = 'https://openclaw.ai/install.ps1'
+}
+if ($env:OPENCLAWDEPLOY_NPM_REGISTRY) {
+  $env:npm_config_registry = $env:OPENCLAWDEPLOY_NPM_REGISTRY
+  $env:NPM_CONFIG_REGISTRY = $env:OPENCLAWDEPLOY_NPM_REGISTRY
+}
+
 if (-not $SkipOpenClawInstall) {
-  Write-Host "[openclawdeploy] 开始安装 OpenClaw CLI（使用官方 install.ps1，跳过交互式 onboard）..."
-  $installer = Invoke-WebRequest -UseBasicParsing https://openclaw.ai/install.ps1
+  Write-Host "[openclawdeploy] 开始安装 OpenClaw CLI（使用安装脚本：$installerUrl，跳过交互式 onboard）..."
+  $installer = Invoke-WebRequest -UseBasicParsing $installerUrl
   $scriptBlock = [scriptblock]::Create($installer.Content)
   & $scriptBlock -NoOnboard
 } else {

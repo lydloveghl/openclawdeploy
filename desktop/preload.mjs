@@ -4,6 +4,9 @@ contextBridge.exposeInMainWorld('openclawDesktop', {
   async getDefaults() {
     return ipcRenderer.invoke('openclawdeploy:getDefaults');
   },
+  async getCatalog(workspace) {
+    return ipcRenderer.invoke('openclawdeploy:getCatalog', workspace);
+  },
   async run(options) {
     const result = await ipcRenderer.invoke('openclawdeploy:run', options);
     if (!result.ok) throw new Error(result.error || '启动失败');
