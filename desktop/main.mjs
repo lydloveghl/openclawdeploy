@@ -7,9 +7,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '..');
 
-process.env.OPENCLAWDEPLOY_NODE = process.execPath;
-process.env.ELECTRON_RUN_AS_NODE = '1';
-
 function createWindow() {
   const win = new BrowserWindow({
     width: 1180,
@@ -36,7 +33,13 @@ ipcMain.handle('openclawdeploy:getDefaults', async () => ({
 
 ipcMain.handle('openclawdeploy:run', async (_event, options) => {
   try {
-    const runId = createRun(projectRoot, options || {}, { label: 'openclawdeploy-desktop' });
+    const runId = createRun(projectRoot, options || {}, {
+      label: 'openclawdeploy-desktop',
+      env: {
+        OPENCLAWDEPLOY_NODE: process.execPath,
+        ELECTRON_RUN_AS_NODE: '1',
+      },
+    });
     return { ok: true, runId };
   } catch (error) {
     return { ok: false, error: error.message };

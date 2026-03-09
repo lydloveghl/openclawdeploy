@@ -11,8 +11,6 @@ const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '..');
 const guiRoot = path.join(projectRoot, 'gui');
 
-process.env.OPENCLAWDEPLOY_NODE = process.execPath;
-
 function json(res, status, data) {
   res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' });
   res.end(JSON.stringify(data));
