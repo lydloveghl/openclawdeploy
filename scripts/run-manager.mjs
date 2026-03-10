@@ -4,6 +4,10 @@ import crypto from 'node:crypto';
 
 const runs = new Map();
 
+function quotePowerShell(value) {
+  return `'${String(value).replace(/'/g, "''")}'`;
+}
+
 export function buildArgs(options = {}) {
   const args = [];
   const push = (flag, value) => {
@@ -102,11 +106,20 @@ export function createRun(projectRoot, options = {}, meta = {}) {
   };
 
   const child = process.platform === 'win32'
-    ? spawn('powershell', ['-ExecutionPolicy', 'Bypass', '-File', path.join(projectRoot, 'install.ps1'), '-DeployArgs', ...args], {
-        cwd: projectRoot,
-        stdio: ['ignore', 'pipe', 'pipe'],
-        env,
-      })
+    ? (() => {
+        const scriptPath = path.join(projectRoot, 'install.ps1');
+        const deployArgs = args.filter((arg) => arg !== '--skip-openclaw-install');
+        const commandParts = [`& ${quotePowerShell(scriptPath)}`];
+        if (options.skipOpenClawInstall) commandParts.push('-SkipOpenClawInstall');
+        if (deployArgs.length > 0) {
+          commandParts.push('-DeployArgs', `@(${deployArgs.map((arg) => quotePowerShell(arg)).join(', ')})`);
+        }
+        return spawn('powershell', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', commandParts.join(' ')], {
+          cwd: projectRoot,
+          stdio: ['ignore', 'pipe', 'pipe'],
+          env,
+        });
+      })()
     : spawn('bash', [path.join(projectRoot, 'install.sh'), ...args], {
         cwd: projectRoot,
         stdio: ['ignore', 'pipe', 'pipe'],
