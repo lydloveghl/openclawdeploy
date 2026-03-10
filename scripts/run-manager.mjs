@@ -102,7 +102,7 @@ export function createRun(projectRoot, options = {}, meta = {}) {
   };
 
   const child = process.platform === 'win32'
-    ? spawn('powershell', ['-ExecutionPolicy', 'Bypass', '-File', path.join(projectRoot, 'install.ps1'), '--', ...args], {
+    ? spawn('powershell', ['-ExecutionPolicy', 'Bypass', '-File', path.join(projectRoot, 'install.ps1'), '-DeployArgs', ...args], {
         cwd: projectRoot,
         stdio: ['ignore', 'pipe', 'pipe'],
         env,
