@@ -122,7 +122,7 @@ if (-not $SkipOpenClawInstall) {
       if (-not $message) {
         $message = ($_ | Out-String).Trim()
       }
-      Write-Warning "[openclawdeploy] Remote installer failed from $installerUrl: $message"
+      Write-Warning "[openclawdeploy] Remote installer failed from ${installerUrl}: $message"
       $attemptErrors += "${installerUrl} -> ${message}"
     }
   }
