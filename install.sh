@@ -20,7 +20,7 @@ case "$(uname -s)" in
   Darwin|Linux)
     ;;
   *)
-    echo "[openclawdeploy] 当前 install.sh 仅支持 macOS / Linux。Windows 请使用 install.ps1。" >&2
+    echo "[openclawdeploy] install.sh currently supports macOS and Linux only. Use install.ps1 on Windows." >&2
     exit 1
     ;;
 esac
@@ -32,16 +32,16 @@ if [[ -n "${OPENCLAWDEPLOY_NPM_REGISTRY:-}" ]]; then
 fi
 
 if [[ "$SKIP_INSTALL" != "1" ]]; then
-  echo "[openclawdeploy] 开始安装 OpenClaw CLI（使用安装脚本：$INSTALLER_URL，跳过交互式 onboard）..."
+  echo "[openclawdeploy] Installing OpenClaw CLI using script: $INSTALLER_URL (interactive onboard skipped)..."
   curl -fsSL --proto '=https' --tlsv1.2 "$INSTALLER_URL" | bash -s -- --no-onboard
 else
-  echo "[openclawdeploy] 已跳过 OpenClaw CLI 安装。"
+  echo "[openclawdeploy] Skipped OpenClaw CLI installation."
 fi
 
 NODE_CMD="${OPENCLAWDEPLOY_NODE:-node}"
 
 if ! command -v "$NODE_CMD" >/dev/null 2>&1 && [[ ! -x "$NODE_CMD" ]]; then
-  echo "[openclawdeploy] 未找到 node，请确认 OpenClaw 安装成功并已把 Node 加到 PATH。" >&2
+  echo "[openclawdeploy] node was not found. Please confirm OpenClaw was installed successfully and Node is available in PATH." >&2
   exit 1
 fi
 

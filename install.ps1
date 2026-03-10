@@ -7,7 +7,7 @@ param(
 $ErrorActionPreference = 'Stop'
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
-Write-Host "[openclawdeploy] Windows 官方推荐优先使用 WSL2，但这里也支持原生 PowerShell 安装。"
+Write-Host "[openclawdeploy] WSL2 is recommended on Windows, but native PowerShell install is also supported."
 
 $installerUrl = $env:OPENCLAWDEPLOY_INSTALLER_URL
 if (-not $installerUrl) {
@@ -19,21 +19,28 @@ if ($env:OPENCLAWDEPLOY_NPM_REGISTRY) {
 }
 
 if (-not $SkipOpenClawInstall) {
-  Write-Host "[openclawdeploy] 开始安装 OpenClaw CLI（使用安装脚本：$installerUrl，跳过交互式 onboard）..."
-  $installer = Invoke-WebRequest -UseBasicParsing $installerUrl
+  Write-Host "[openclawdeploy] Installing OpenClaw CLI using script: $installerUrl (interactive onboard skipped)..."
+  $invokeParams = @{ Uri = $installerUrl }
+  if ($PSVersionTable.PSVersion.Major -lt 6) {
+    $invokeParams.UseBasicParsing = $true
+  }
+  $installer = Invoke-WebRequest @invokeParams
   $scriptBlock = [scriptblock]::Create($installer.Content)
   & $scriptBlock -NoOnboard
 } else {
-  Write-Host "[openclawdeploy] 已跳过 OpenClaw CLI 安装。"
+  Write-Host "[openclawdeploy] Skipped OpenClaw CLI installation."
 }
 
 $nodeCmd = $env:OPENCLAWDEPLOY_NODE
 if (-not $nodeCmd) {
   $node = Get-Command node -ErrorAction SilentlyContinue
   if (-not $node) {
-    throw "[openclawdeploy] 未找到 node，请确认 OpenClaw 安装成功并已把 Node 加到 PATH。"
+    throw "[openclawdeploy] node was not found. Please confirm OpenClaw was installed successfully and Node is available in PATH."
   }
-  $nodeCmd = $node.Source
+  $nodeCmd = $node.Path
+  if (-not $nodeCmd) {
+    $nodeCmd = $node.Source
+  }
 }
 
 & $nodeCmd (Join-Path $ScriptDir 'scripts/deploy.mjs') @DeployArgs
